@@ -22,7 +22,7 @@ public class InputDonjon : MonoBehaviour {
 				if (moveY == 0)
 						moveY -= inputDevice.DPad.Y;
 				if (inputDevice.LeftStick) {
-						Debug.Log ("debuSTICK");
+					
 						transform.position += new Vector3 (-moveX * speed, 0, -moveY * speed);
 			
 						if (inputDevice != null) {

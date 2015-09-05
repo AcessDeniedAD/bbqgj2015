@@ -17,6 +17,7 @@ public class playSoundAfterTime : MonoBehaviour {
 		timer += Time.deltaTime;
 		if (canPlay&&timer > playOnThisTime) 
 		{
+
 			NGUITools.PlaySound(adioClip);
 			canPlay=false;
 		}
