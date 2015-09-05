@@ -19,6 +19,12 @@ public class chief : InputDonjon {
 		gunUse = true;
 	}
 
+	void OnTriggerEnter(Collider other) {
+		if (other.tag == "player") {
+			Debug.Log("YOU TAKE DOMMMAGE MOUHAHAHAHAH");
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 				var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
