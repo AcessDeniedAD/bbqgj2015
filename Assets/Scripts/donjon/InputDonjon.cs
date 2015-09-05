@@ -6,15 +6,22 @@ using System;
 public class InputDonjon : MonoBehaviour {
 	private Quaternion saveRotate;
 	public int playerNum;
-	public GameObject sauccisseGameObject;
+	public GameObject saucisseGameObject;
 	private float speed =0.1f;
+	public Animator monAnim ;
 	// Use this for initialization
 	void Start () {
-		sauccisseGameObject.animation.Play ();
+		if(gameObject.tag == "player")
+		monAnim = transform.FindChild("Chipo_run").GetComponent<Animator>();
 	}
 	public void updateWithInControl(InputDevice inputDevice){
-		//if (inputDevice.LeftStick)
-					
+		if (monAnim != null) 
+		{
+			if(inputDevice.LeftStick)
+				monAnim.SetBool ("walking", true);
+			else
+				monAnim.SetBool ("walking", false);
+		}
 
 		//var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
 		float moveY = 0;
