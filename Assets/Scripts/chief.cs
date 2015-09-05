@@ -14,12 +14,13 @@ public class chief : InputDonjon {
 	void Update () {
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices[playerNum] : null;
 		updateWithInControl (inputDevice);
-		if (inputDevice.Action1) {
+		/*if (inputDevice.Action1) {
 			firegun.SetActive(true);
+
 						
 		}
 		else{
 			firegun.SetActive(false);
-		}
+		}*/
 	}
 }
