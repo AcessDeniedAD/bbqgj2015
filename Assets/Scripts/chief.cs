@@ -26,7 +26,7 @@ public class chief : InputDonjon {
 			firegun.SetActive(false);
 		}*/
 
-		if (inputDevice.Action2.WasPressed(){
+		if (inputDevice.Action2.WasPressed){
 			Rigidbody instantiatedSauce = Instantiate(sauce,Quaternion.identity) as Rigidbody;
 			instantiatedSauce.transform.rotation = transform.rotation;
 			instantiatedSauce.velocity = transform.TransformDirection(new Vector3(0, 0,sauceSpeed));
