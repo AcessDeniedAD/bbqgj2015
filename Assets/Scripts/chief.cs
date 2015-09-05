@@ -5,8 +5,9 @@ using System;
 
 public class chief : InputDonjon {
 	public GameObject firegun;
-	public GameObject sauce;
-	public int sauceSpeed;
+	//public GameObject sauce;
+	public Rigidbody sauce;
+	public int sauceSpeed=100000;
 	public int firegunUse;
 	public int maxFireGun;
 	public int fireGunOverheatingSpeed;
@@ -43,18 +44,9 @@ public class chief : InputDonjon {
 		} else if (_maxFireGun <= firegunUse && gunUse == false) {
 			gunUse = true;
 		}
-		if (inputDevice.Action2.WasPressed) {
-			GameObject instantiatedSauce = Instantiate (sauce, transform.position, transform.rotation) as GameObject;
-			instantiatedSauce.transform.rotation = transform.rotation;
-			instantiatedSauce.rigidbody.velocity = transform.TransformDirection (new Vector3 (0, 0, sauceSpeed));
-		}
-	
 
-		if (inputDevice.Action2.WasPressed){
-			GameObject instantiatedSauce = Instantiate(sauce,transform.position,transform.rotation) as GameObject;
-			Debug.Log("sauce tirée");
-			instantiatedSauce.transform.rotation = transform.rotation;
-			instantiatedSauce.rigidbody.velocity = transform.TransformDirection(new Vector3(0, 0,sauceSpeed));
+		if (inputDevice.Action2.WasPressed) {
+			Rigidbody instantiatedSauce = Instantiate (sauce, transform.position, transform.rotation) as Rigidbody;
 		}
 	}
 }
