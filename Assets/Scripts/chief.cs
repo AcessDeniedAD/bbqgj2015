@@ -16,33 +16,32 @@ public class chief : InputDonjon {
 	private bool gunUse ;
 	private int _maxFireGun;
 	private float firgunSize;
-
+	private BoxCollider b ;
 
 	// Use this for initialization
 	void Start () {
 		_maxFireGun = 0;
 		gunUse = true;
 		firgunSize = 0;
-
-
-
-
+		b = firegun.GetComponent<BoxCollider>();
 	}	
-	
+
 	// Update is called once per frame
 	void Update () {
-		BoxCollider b = firegun.collider as BoxCollider;
+
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
 		updateWithInControl (inputDevice);
 		if (inputDevice.Action1 && gunUse == true) {
 			firgunSize += 4f * Time.deltaTime;
-			if (firgunSize <3.3){
-				b.size = new Vector3(1.0f,firgunSize,0.7f);
+			if (firgunSize <3.6){
+				b.size = new Vector3(0.2f,firgunSize,1.5f);
+				b.isTrigger = true;
 				b.center = new Vector3(0.0f,(0.0f+firgunSize)/2,0.0f);
 			}
 			firegun.SetActive (true);
 			_maxFireGun += fireGunOverheatingSpeed;				
 		} else if (! inputDevice.Action1 || gunUse == false) {
+			b.isTrigger = false;
 			firgunSize = 0.0f;
 			firegun.SetActive (false);
 			if (_maxFireGun > 0)

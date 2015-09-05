@@ -7,12 +7,40 @@ public class saucisseScript : MonoBehaviour {
 	public int niveauDeCuissonMax = 10;
 	public bool saucisseCuite = false;
 	public bool saucisseSurPlaque = false;
+	public float heal;
+	[HideInInspector]public bool gunOnFire;
+	private float timer;
+	[HideInInspector]public float elapsedTime;
+	public float dangerousLevel;
+	public float onFireDommage;
+	public float fireDommageTime;
 
 	// Use this for initialization
 	void Start () {
-	
+		this.gunOnFire = false;
 	}
-	
+
+
+	public void removeLife(float dommage){
+		if (this.niveauDeCuisson < this.niveauDeCuissonMax) {
+			this.niveauDeCuisson += dommage;
+			this.gunOnFire = true;
+			timer = fireDommageTime;
+
+		}
+
+	}
+	public void addLife(float heal){
+		if (this.niveauDeCuisson > 0) {
+			this.niveauDeCuisson -= heal;
+		}
+	}
+
+	public void kill(){
+		if (this.niveauDeCuisson >= this.niveauDeCuissonMax) {
+			Destroy (this);				
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		if (saucisseSurPlaque) {
@@ -22,6 +50,21 @@ public class saucisseScript : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col)
 	{
+		Debug.Log ("Timer:"+timer+"Time.deltaTime" + elapsedTime);
+		elapsedTime += 0.1f;
+		if(timer < elapsedTime){
+			this.gunOnFire = false;
+		}
+		if (gunOnFire) {
+			this.removeLife(onFireDommage);		
+		}
+		if (!gunOnFire && this.niveauDeCuisson > this.dangerousLevel) {
+			addLife(heal);
+		}
+	}
+
+	void OnCollisionEnter (Collision col)
+	{	
 		if (col.gameObject.tag == "sauce") {
 			Debug.Log ("trigger saucisse & sauce");
 			// appel de la fonction "saucer"

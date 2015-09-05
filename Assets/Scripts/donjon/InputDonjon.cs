@@ -13,6 +13,7 @@ public class InputDonjon : MonoBehaviour {
 	void Start () {
 		if(gameObject.tag == "player")
 		monAnim = transform.FindChild("Chipo_run").GetComponent<Animator>();
+	
 	}
 	public void updateWithInControl(InputDevice inputDevice){
 		if (monAnim != null) 
