@@ -3,6 +3,7 @@ using System.Collections;
 using InControl;
 using System;
 
+
 public class chief : InputDonjon {
 	public GameObject firegun;
 	public GameObject sauce;
@@ -13,18 +14,15 @@ public class chief : InputDonjon {
 	public int fireGunCoolingSpeed;
 	private bool gunUse ;
 	private int _maxFireGun;
+
 	// Use this for initialization
 	void Start () {
 		_maxFireGun = 0;
 		gunUse = true;
-	}
 
-	void OnTriggerEnter(Collider other) {
-		if (other.tag == "player") {
-			Debug.Log("YOU TAKE DOMMMAGE MOUHAHAHAHAH");
-		}
-	}
 
+	}	
+	
 	// Update is called once per frame
 	void Update () {
 		var inputDevice = (InputManager.Devices.Count > playerNum) ? InputManager.Devices [playerNum] : null;
