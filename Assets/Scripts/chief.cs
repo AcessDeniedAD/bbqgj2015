@@ -28,6 +28,7 @@ public class chief : InputDonjon {
 
 		if (inputDevice.Action2.WasPressed){
 			GameObject instantiatedSauce = Instantiate(sauce,transform.position,transform.rotation) as GameObject;
+			Debug.Log("sauce tirée");
 			instantiatedSauce.transform.rotation = transform.rotation;
 			instantiatedSauce.rigidbody.velocity = transform.TransformDirection(new Vector3(0, 0,sauceSpeed));
 		}
