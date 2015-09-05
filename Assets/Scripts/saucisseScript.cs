@@ -46,10 +46,7 @@ public class saucisseScript : MonoBehaviour {
 		if (saucisseSurPlaque) {
 			Cuire ();
 		}
-	}
 
-	void OnTriggerEnter (Collider col)
-	{
 		Debug.Log ("Timer:"+timer+"Time.deltaTime" + elapsedTime);
 		elapsedTime += 0.1f;
 		if(timer < elapsedTime){
@@ -63,7 +60,7 @@ public class saucisseScript : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter (Collision col)
+	void OnTriggerEnter (Collision col)
 	{	
 		if (col.gameObject.tag == "sauce") {
 			Debug.Log ("trigger saucisse & sauce");
