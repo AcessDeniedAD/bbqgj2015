@@ -38,7 +38,7 @@ ModelImporter:
     400030: tibia droit
     400032: tibia gauche
     4300000: Object002
-    7400000: Take 001
+    7400000: walk
     9500000: //RootNode
     13700000: Object002
   materials:
@@ -56,7 +56,68 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bassin
+        weight: 1
+      - path: bassin/bide
+        weight: 1
+      - path: bassin/bide/cou
+        weight: 1
+      - path: bassin/bide/cou/tete
+        weight: 1
+      - path: bassin/bide/cou/tete/hat
+        weight: 1
+      - path: bassin/hanche droite
+        weight: 1
+      - path: bassin/hanche droite/cuisse droite
+        weight: 1
+      - path: bassin/hanche droite/cuisse droite/tibia droit
+        weight: 1
+      - path: bassin/hanche droite/cuisse droite/tibia droit/talon droit
+        weight: 1
+      - path: bassin/hanche droite/cuisse droite/tibia droit/talon droit/orteil droit
+        weight: 1
+      - path: bassin/hanche gauche
+        weight: 1
+      - path: bassin/hanche gauche/cuisse gauche
+        weight: 1
+      - path: bassin/hanche gauche/cuisse gauche/tibia gauche
+        weight: 1
+      - path: bassin/hanche gauche/cuisse gauche/tibia gauche/talon gauche
+        weight: 1
+      - path: bassin/hanche gauche/cuisse gauche/tibia gauche/talon gauche/orteil
+          gauche
+        weight: 1
+      - path: Object002
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
