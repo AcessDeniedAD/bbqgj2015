@@ -3,7 +3,7 @@ using System.Collections;
 
 public class saucisseScript : MonoBehaviour {
 	public bool saucisseSaucee = false;
-	public bool niveauDeCuisson = 0;
+	public float niveauDeCuisson = 0;
 	public int niveauDeCuissonMax = 10;
 	public bool saucisseCuite = false;
 

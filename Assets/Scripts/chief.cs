@@ -27,9 +27,9 @@ public class chief : InputDonjon {
 		}*/
 
 		if (inputDevice.Action2.WasPressed){
-			Rigidbody instantiatedSauce = Instantiate(sauce,Quaternion.identity) as Rigidbody;
+			GameObject instantiatedSauce = Instantiate(sauce,transform.position,transform.rotation) as GameObject;
 			instantiatedSauce.transform.rotation = transform.rotation;
-			instantiatedSauce.velocity = transform.TransformDirection(new Vector3(0, 0,sauceSpeed));
+			instantiatedSauce.rigidbody.velocity = transform.TransformDirection(new Vector3(0, 0,sauceSpeed));
 		}
 	}
 }
