@@ -6,7 +6,7 @@ using System;
 public class InputDonjon : MonoBehaviour {
 	private Quaternion saveRotate;
 	public int playerNum;
-	private float speed =0.25f;
+	private float speed =0.1f;
 	// Use this for initialization
 	void Start () {
 		
