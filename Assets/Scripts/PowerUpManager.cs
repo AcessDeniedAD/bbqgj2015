@@ -20,7 +20,6 @@ public class PowerUpManager : MonoBehaviour {
 			Vector3 positionToPop = new Vector3 ();
 			Instantiate(powerUp,new Vector3( Random.Range(boxToPopPowerUp.collider.bounds.min.x,boxToPopPowerUp.collider.bounds.max.x),2, Random.Range(boxToPopPowerUp.collider.bounds.min.z,boxToPopPowerUp.collider.bounds.max.z)), transform.rotation);
 			timer= 0;
-			Debug.Log ("POP");
 		}
 	}
 }
