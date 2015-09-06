@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: efd17132888cce74ebee103772824fa9
+=======
+<<<<<<< HEAD:Assets/Strik/Jauge.png.meta
+guid: 86b949d12ee71fd49aa72c6135b174a2
+=======
+guid: 62493d0e6c94d1446bd28381a40aea4c
+>>>>>>> origin/master:Assets/Strik/Jauge.png.meta
+>>>>>>> c99ae52d0d4f61601a0391a1daed1b71862501be
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 2

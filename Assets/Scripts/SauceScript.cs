@@ -4,6 +4,7 @@ using System.Collections;
 public class SauceScript : MonoBehaviour {
 	public float sauceSpeed = 0.1f;
 	public GameObject sauciseToANim;
+	public GameObject TacheKetchup;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +19,10 @@ public class SauceScript : MonoBehaviour {
 	void OnTriggerEnter(Collider col)
 	{
 		// Destruction de la bille de sauce si elle touvhe un mur
-		if (col.gameObject.tag == "walls")
+		if (col.gameObject.tag == "wall")
 		{
 			Destroy(gameObject);
+			Rigidbody instantiatedKetchup = Instantiate (TacheKetchup, transform.position, transform.rotation) as Rigidbody;
 		}
 	}
 }
