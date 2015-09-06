@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3b92b8bf312331048b392114e925bc7a
 TextureImporter:
   fileIDToRecycleName: {}
@@ -6,6 +7,19 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+=======
+guid: b151b038043e63c4aa1e15c4195fa325
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Sprite_mayo
+    21300002: Sprite_mayo_0
+    21300004: Sprite_mayo_1
+    21300006: Sprite_mayo_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+>>>>>>> fe2e39451a0f5e5d7cbe74cedf3e454c548ae510
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -25,6 +39,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
+<<<<<<< HEAD
     aniso: -1
     mipBias: -1
     wrapMode: -1
@@ -32,16 +47,63 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
+=======
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+>>>>>>> fe2e39451a0f5e5d7cbe74cedf3e454c548ae510
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+<<<<<<< HEAD
   alphaIsTransparency: 0
   textureType: -1
   buildTargetSettings: []
   spriteSheet:
     sprites: []
+=======
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Sprite_mayo_0
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 215
+        width: 275
+        height: 279
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_mayo_1
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 29
+        width: 202
+        height: 470
+      alignment: 9
+      pivot: {x: .511637151, y: .795091569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Sprite_mayo_2
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 0
+        width: 126
+        height: 500
+      alignment: 9
+      pivot: {x: .5, y: .810296178}
+      border: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> fe2e39451a0f5e5d7cbe74cedf3e454c548ae510
   spritePackingTag: 
   userData: 
