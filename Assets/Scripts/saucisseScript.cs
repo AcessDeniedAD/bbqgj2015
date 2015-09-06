@@ -14,10 +14,17 @@ public class saucisseScript : MonoBehaviour {
 	public float dangerousLevel;
 	public float onFireDommage;
 	public float fireDommageTime;
+	public Animator monAnim;
 
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
 		this.onFire = false;
+=======
+		this.gunOnFire = false;
+
+		monAnim = transform.FindChild("Chipo_run").GetComponent<Animator>();
+>>>>>>> origin/master
 	}
 
 	public void removeLife(float dommage){
@@ -27,6 +34,14 @@ public class saucisseScript : MonoBehaviour {
 				this.onFire = true;
 			}
 			timer = fireDommageTime;
+<<<<<<< HEAD
+=======
+			Debug.Log ("TAKEDAMAGE");
+			Debug.Log ( monAnim.GetBool("isFiring"));
+			monAnim.SetBool("isFiring",true);
+			Debug.Log ( monAnim.GetBool("isFiring")+"guygyugyukgkyhgyukgfygyufgu");
+
+>>>>>>> origin/master
 		}
 	}
 
@@ -44,10 +59,19 @@ public class saucisseScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
 		//Debug.Log ("Timer:"+timer+"Time.deltaTime" + elapsedTime);
+=======
+		if (saucisseSurPlaque) {
+			Cuire ();
+		}
+
+
+>>>>>>> origin/master
 		elapsedTime += 0.1f;
 
 		if(timer < elapsedTime){
+<<<<<<< HEAD
 			this.onFire = false;
 		}
 
@@ -61,6 +85,14 @@ public class saucisseScript : MonoBehaviour {
 
 
 		if (onFire) {
+=======
+			this.gunOnFire = false;
+			monAnim.SetBool("isFiring",false);
+		
+		}
+		Debug.Log (gunOnFire);
+		if (gunOnFire) {
+>>>>>>> origin/master
 			this.removeLife(onFireDommage);		
 		}
 

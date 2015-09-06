@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SauceScript : MonoBehaviour {
 	public float sauceSpeed = 0.1f;
+	public GameObject sauciseToANim;
 
 	// Use this for initialization
 	void Start () {
