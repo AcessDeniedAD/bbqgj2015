@@ -29,7 +29,6 @@ public class chief : InputDonjon {
 		firgunSize = 0;
 		b = transform.FindChild("Playground Manager").FindChild ("Playground Fire").GetComponent<BoxCollider>();
 		b.enabled = false;
-		Debug.Log (b.enabled);
 		fireScrpit = this.transform.FindChild ("Playground Manager").transform.FindChild ("Playground Fire").GetComponent<ParticlePlayground.PlaygroundParticlesC> ();
 		fireScrpit.emit = false;
 
@@ -46,7 +45,7 @@ public class chief : InputDonjon {
 		updateWithInControl (inputDevice);
 		if (inputDevice.Action1 && gunUse == true) {
 			firgunSize += 4f * Time.deltaTime;
-			if (firgunSize <3.6){
+			if (firgunSize <7.2){
 				b.enabled =true;
 				b.size = new Vector3(0.2f,firgunSize,1.5f);
 				b.isTrigger = true;
