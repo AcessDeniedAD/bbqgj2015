@@ -22,7 +22,10 @@ public class MayoScript : MonoBehaviour {
 		if (col.gameObject.tag == "wall")
 		{
 			Destroy(gameObject);
-			Rigidbody instantiatedKetchup = Instantiate (TacheMayo, transform.position, transform.rotation) as Rigidbody;
+			Rigidbody instantiatedKetchup = Instantiate (TacheMayo, transform.position + transform.forward, Quaternion.Euler(0,0,0)) as Rigidbody;
+			
 		}
 	}
+
+
 }
