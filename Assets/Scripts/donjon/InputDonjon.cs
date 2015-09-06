@@ -18,8 +18,10 @@ public class InputDonjon : MonoBehaviour {
 	public void updateWithInControl(InputDevice inputDevice){
 		if (monAnim != null) 
 		{
-			if(inputDevice.LeftStick)
+			if(inputDevice.LeftStick && !monAnim.GetBool("isFiring") )
+			{
 				monAnim.SetBool ("walking", true);
+			}
 			else
 				monAnim.SetBool ("walking", false);
 		}
