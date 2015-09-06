@@ -71,8 +71,8 @@ public class chief : InputDonjon {
 		}
 
 		if (inputDevice.Action2.WasPressed) {
-			Rigidbody instantiatedKetchup = Instantiate (ketchup, transform.position, transform.rotation) as Rigidbody;
-			Rigidbody instantiatedMayo = Instantiate (mayo, transform.position, transform.rotation) as Rigidbody;
+			Rigidbody instantiatedKetchup = Instantiate (ketchup, transform.position, Quaternion.Euler( transform.rotation.eulerAngles + new Vector3(transform.rotation.x,transform.rotation.y-7f,transform.rotation.z))) as Rigidbody;
+			Rigidbody instantiatedMayo = Instantiate (mayo, transform.position,Quaternion.Euler( transform.rotation.eulerAngles + new Vector3(transform.rotation.x,transform.rotation.y+7f,transform.rotation.z)))  as Rigidbody;
 		}
 	}
 }
