@@ -28,7 +28,6 @@ public class chief : InputDonjon {
 				b = firegun.GetComponent<BoxCollider> ();
 				fireScrpit = this.transform.FindChild ("Playground Manager").transform.FindChild ("Playground Fire").GetComponent<ParticlePlayground.PlaygroundParticlesC> ();
 				fireScrpit.emit = false;
-				fireScrpit.applyLocalSpaceMovementCompensation = true;
 
 	}
 	// Update is called once per frame
