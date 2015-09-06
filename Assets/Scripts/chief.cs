@@ -8,7 +8,9 @@ using ParticlePlayground;
 public class chief : InputDonjon {
 
 	//public GameObject sauce;
-	public Rigidbody sauce;
+	public Rigidbody ketchup;
+	public Rigidbody mayo;
+
 	public int sauceSpeed=100000;
 	public int firegunUse;
 	public int maxFireGun;
@@ -69,7 +71,8 @@ public class chief : InputDonjon {
 		}
 
 		if (inputDevice.Action2.WasPressed) {
-			Rigidbody instantiatedSauce = Instantiate (sauce, transform.position, transform.rotation) as Rigidbody;
+			Rigidbody instantiatedKetchup = Instantiate (ketchup, transform.position, transform.rotation) as Rigidbody;
+			Rigidbody instantiatedMayo = Instantiate (mayo, transform.position, transform.rotation) as Rigidbody;
 		}
 	}
 }
