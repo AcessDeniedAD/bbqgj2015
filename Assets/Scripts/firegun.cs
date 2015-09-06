@@ -13,7 +13,7 @@ public class firegun : MonoBehaviour {
 			if (other.gameObject.tag == "player") {
 				saucisseScript otherScript = other.GetComponent<saucisseScript> ();
 				otherScript.removeLife (Gundommage);
-				otherScript.gunOnFire = true;
+				otherScript.onFire = true;
 			otherScript.elapsedTime = 0.0f;
 			}
 	}

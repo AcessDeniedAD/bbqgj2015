@@ -8,7 +8,7 @@ public class saucisseScript : MonoBehaviour {
 	public bool saucisseCuite = false;
 	public bool saucisseSurPlaque = false;
 	public float heal;
-	[HideInInspector]public bool gunOnFire;
+	public bool onFire;
 	private float timer;
 	[HideInInspector]public float elapsedTime;
 	public float dangerousLevel;
@@ -18,25 +18,24 @@ public class saucisseScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		this.gunOnFire = false;
-
+		this.onFire = false;
 		monAnim = transform.FindChild("Chipo_run").GetComponent<Animator>();
 	}
-
 
 	public void removeLife(float dommage){
 		if (this.niveauDeCuisson < this.niveauDeCuissonMax) {
 			this.niveauDeCuisson += dommage;
-			this.gunOnFire = true;
+			if (this.onFire != true){
+				this.onFire = true;
+			}
 			timer = fireDommageTime;
 			Debug.Log ("TAKEDAMAGE");
 			Debug.Log ( monAnim.GetBool("isFiring"));
 			monAnim.SetBool("isFiring",true);
 			Debug.Log ( monAnim.GetBool("isFiring")+"guygyugyukgkyhgyukgfygyufgu");
-
 		}
-
 	}
+
 	public void addLife(float heal){
 		if (this.niveauDeCuisson > 0) {
 			this.niveauDeCuisson -= heal;
@@ -48,24 +47,30 @@ public class saucisseScript : MonoBehaviour {
 			Destroy (this);				
 		}
 	}
+
 	// Update is called once per frame
 	void Update () {
-		if (saucisseSurPlaque) {
-			Cuire ();
-		}
-
-
+		//Debug.Log ("Timer:"+timer+"Time.deltaTime" + elapsedTime);
 		elapsedTime += 0.1f;
+
 		if(timer < elapsedTime){
-			this.gunOnFire = false;
-			monAnim.SetBool("isFiring",false);
+			this.onFire = false;
+		}
+
+		if (this.onFire == true){
+			Debug.Log("onFire est true");
+		}
+
+		if (this.onFire == false){
+			Debug.Log("onFire est false");
+		}
 		
-		}
-		Debug.Log (gunOnFire);
-		if (gunOnFire) {
+		if (onFire) {
 			this.removeLife(onFireDommage);		
+			monAnim.SetBool("isFiring",false);
 		}
-		if (!gunOnFire && this.niveauDeCuisson > this.dangerousLevel) {
+		
+		if (!onFire && this.niveauDeCuisson > this.dangerousLevel) {
 			addLife(heal);
 		}
 	}
@@ -73,46 +78,23 @@ public class saucisseScript : MonoBehaviour {
 	void OnTriggerEnter (Collider col)
 	{	
 		if (col.gameObject.tag == "sauce") {
-			Debug.Log ("trigger saucisse & sauce");
-			// appel de la fonction "saucer"
 			Saucer();
-
 			// Destruction de la sauce
 			Destroy(col.gameObject);
 		}
 
-		if (col.gameObject.tag == "plaqueCuisson") {
-			Debug.Log ("triggerEnter: saucisse & plaque de cuisson");
-			Debug.Log ("début de la cuisson");
-			saucisseSurPlaque = true;
-		}
-	}
 
-	void OnTriggerExit (Collider col)
-	{
+	}
+	void OnTriggerStay(Collider col) {
 		if (col.gameObject.tag == "plaqueCuisson") {
-			Debug.Log ("triggerExit: saucisse & plaque de cuisson");
-			Debug.Log ("fin de la cuisson");
-			saucisseSurPlaque = false;
+			removeLife(onFireDommage);
+			this.elapsedTime = 0.0f;
 		}
 	}
 
 	void Saucer(){
 		// changement de la variable saucer
 		saucisseSaucee = true;
-
 		// Changement du skin
-	}
-
-	void Cuire(){
-		// MAJ du niveau de cuisson
-		Debug.Log ("cuisson+");
-		niveauDeCuisson ++;
-		Debug.Log ("niveau de cuisson"+ niveauDeCuisson);
-		// Vérifier si la saucisse est cuite
-		if (niveauDeCuisson >= niveauDeCuissonMax) {
-			saucisseCuite = true;
-		}
-		// MAJ du skin de la saucisse
 	}
 }
