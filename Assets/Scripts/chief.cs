@@ -2,6 +2,7 @@
 using System.Collections;
 using InControl;
 using System;
+using ParticlePlayground;
 
 
 public class chief : InputDonjon {
@@ -17,15 +18,19 @@ public class chief : InputDonjon {
 	private int _maxFireGun;
 	private float firgunSize;
 	private BoxCollider b ;
-
+	ParticlePlayground.PlaygroundParticlesC fireScrpit;
+	private 
 	// Use this for initialization
 	void Start () {
-		_maxFireGun = 0;
-		gunUse = true;
-		firgunSize = 0;
-		b = firegun.GetComponent<BoxCollider>();
-	}	
+				_maxFireGun = 0;
+				gunUse = true;
+				firgunSize = 0;
+				b = firegun.GetComponent<BoxCollider> ();
+				fireScrpit = this.transform.FindChild ("Playground Manager").transform.FindChild ("Playground Fire").GetComponent<ParticlePlayground.PlaygroundParticlesC> ();
+				fireScrpit.emit = false;
+				fireScrpit.applyLocalSpaceMovementCompensation = true;
 
+	}
 	// Update is called once per frame
 	void Update () {
 
@@ -38,12 +43,12 @@ public class chief : InputDonjon {
 				b.isTrigger = true;
 				b.center = new Vector3(0.0f,(0.0f+firgunSize)/2,0.0f);
 			}
-			firegun.SetActive (true);
+			fireScrpit.emit = true;
 			_maxFireGun += fireGunOverheatingSpeed;				
 		} else if (! inputDevice.Action1 || gunUse == false) {
 			b.isTrigger = false;
 			firgunSize = 0.0f;
-			firegun.SetActive (false);
+			fireScrpit.emit = false;
 			if (_maxFireGun > 0)
 				_maxFireGun -= fireGunCoolingSpeed;
 		}
