@@ -9,6 +9,7 @@ public class firegun : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other) {
+		Debug.Log ("test");
 			if (other.gameObject.tag == "player") {
 				saucisseScript otherScript = other.GetComponent<saucisseScript> ();
 				otherScript.removeLife (Gundommage);

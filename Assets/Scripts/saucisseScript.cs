@@ -14,10 +14,13 @@ public class saucisseScript : MonoBehaviour {
 	public float dangerousLevel;
 	public float onFireDommage;
 	public float fireDommageTime;
+	public Animator monAnim;
 
 	// Use this for initialization
 	void Start () {
 		this.gunOnFire = false;
+
+		monAnim = transform.FindChild("Chipo_run").GetComponent<Animator>();
 	}
 
 
@@ -26,6 +29,10 @@ public class saucisseScript : MonoBehaviour {
 			this.niveauDeCuisson += dommage;
 			this.gunOnFire = true;
 			timer = fireDommageTime;
+			Debug.Log ("TAKEDAMAGE");
+			Debug.Log ( monAnim.GetBool("isFiring"));
+			monAnim.SetBool("isFiring",true);
+			Debug.Log ( monAnim.GetBool("isFiring")+"guygyugyukgkyhgyukgfygyufgu");
 
 		}
 
@@ -47,11 +54,14 @@ public class saucisseScript : MonoBehaviour {
 			Cuire ();
 		}
 
-		Debug.Log ("Timer:"+timer+"Time.deltaTime" + elapsedTime);
+
 		elapsedTime += 0.1f;
 		if(timer < elapsedTime){
 			this.gunOnFire = false;
+			monAnim.SetBool("isFiring",false);
+		
 		}
+		Debug.Log (gunOnFire);
 		if (gunOnFire) {
 			this.removeLife(onFireDommage);		
 		}
@@ -60,7 +70,7 @@ public class saucisseScript : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter (Collision col)
+	void OnTriggerEnter (Collider col)
 	{	
 		if (col.gameObject.tag == "sauce") {
 			Debug.Log ("trigger saucisse & sauce");

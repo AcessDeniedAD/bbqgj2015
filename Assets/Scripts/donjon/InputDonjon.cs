@@ -61,7 +61,7 @@ public class InputDonjon : MonoBehaviour {
 
 	}
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log(collision.collider.name);
+		//Debug.Log(collision.collider.name);
 	}
 }
 	
