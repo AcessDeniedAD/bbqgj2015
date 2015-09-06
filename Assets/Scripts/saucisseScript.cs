@@ -19,7 +19,7 @@ public class saucisseScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.onFire = false;
-		monAnim = transform.FindChild("Chipo_run").GetComponent<Animator>();
+		//monAnim = transform.FindChild("Chipo_run").GetComponent<Animator>();
 	}
 
 	public void removeLife(float dommage){
@@ -27,12 +27,13 @@ public class saucisseScript : MonoBehaviour {
 			this.niveauDeCuisson += dommage;
 			if (this.onFire != true){
 				this.onFire = true;
+				timer = fireDommageTime;
+				Debug.Log ("TAKEDAMAGE");
+				Debug.Log ( monAnim.GetBool("isFiring"));
+				monAnim.SetBool("isFiring",true);
+				Debug.Log ( monAnim.GetBool("isFiring")+"guygyugyukgkyhgyukgfygyufgu");
 			}
-			timer = fireDommageTime;
-			Debug.Log ("TAKEDAMAGE");
-			Debug.Log ( monAnim.GetBool("isFiring"));
-			monAnim.SetBool("isFiring",true);
-			Debug.Log ( monAnim.GetBool("isFiring")+"guygyugyukgkyhgyukgfygyufgu");
+
 		}
 	}
 
@@ -55,19 +56,19 @@ public class saucisseScript : MonoBehaviour {
 
 		if(timer < elapsedTime){
 			this.onFire = false;
+			monAnim.SetBool("isFiring",false);
 		}
 
 		if (this.onFire == true){
-			Debug.Log("onFire est true");
+			monAnim.GetBool("isFiring");
 		}
 
 		if (this.onFire == false){
-			Debug.Log("onFire est false");
 		}
 		
 		if (onFire) {
 			this.removeLife(onFireDommage);		
-			monAnim.SetBool("isFiring",false);
+			monAnim.SetBool("isFiring",true);
 		}
 		
 		if (!onFire && this.niveauDeCuisson > this.dangerousLevel) {
