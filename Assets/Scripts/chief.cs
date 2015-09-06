@@ -19,9 +19,13 @@ public class chief : InputDonjon {
 	private float firgunSize;
 	private BoxCollider b ;
 	ParticlePlayground.PlaygroundParticlesC fireScrpit;
-	private 
+
 	// Use this for initialization
 	void Start () {
+		if (gameObject.tag == "playerChief") 
+		{
+			monAnim = transform.FindChild("Walk_chief").GetComponent<Animator>();
+		}
 				_maxFireGun = 0;
 				gunUse = true;
 				firgunSize = 0;

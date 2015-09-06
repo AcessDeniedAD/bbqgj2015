@@ -19,7 +19,10 @@ public class InputDonjon : MonoBehaviour {
 		if (monAnim != null) 
 		{
 			if(inputDevice.LeftStick)
+			{
+				Debug.Log ("eifjeroihfiuergiurhgi");
 				monAnim.SetBool ("walking", true);
+			}
 			else
 				monAnim.SetBool ("walking", false);
 		}
