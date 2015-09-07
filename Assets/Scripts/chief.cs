@@ -35,7 +35,7 @@ public class chief : InputDonjon {
 				
 		if (this.gameObject.tag == "playerChief") 
 		{
-			monAnim = transform.FindChild("ChiefPasTouché").GetComponent<Animator>();
+			//monAnim = transform.FindChild("ChiefPasTouché").GetComponent<Animator>();
 		}
 	}
 	// Update is called once per frame
@@ -45,11 +45,11 @@ public class chief : InputDonjon {
 		updateWithInControl (inputDevice);
 		if (inputDevice.Action1 && gunUse == true) {
 			firgunSize += 4f * Time.deltaTime;
+			Debug.Log(firgunSize);
 			if (firgunSize <7.2){
 				b.enabled =true;
 				b.size = new Vector3(0.2f,firgunSize,1.5f);
 				b.isTrigger = true;
-				fireScrpit.emit = true;
 				b.center = new Vector3(0.0f,(0.0f+firgunSize)/2,0.0f);
 			}
 			fireScrpit.emit = true;

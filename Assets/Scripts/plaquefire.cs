@@ -8,12 +8,14 @@ public class plaquefire : MonoBehaviour {
 	public float onFireElapsedTime;
 	public float notOnFireElapsedTime;
 	private bool onFire;
+	private BoxCollider b;
 	// Use this for initialization
 	void Start () {
 		playground = this.GetComponent<ParticlePlayground.PlaygroundParticlesC> ();
 		onFire = false;
 		onFireElapsedTime = Random.Range (0, 40);
 		notOnFireElapsedTime = Random.Range (0, 40);
+
 	}	
 	
 	// Update is called once per frame
@@ -24,6 +26,7 @@ public class plaquefire : MonoBehaviour {
 			playground.emit=true;
 			elapsedTime = 0.1f;
 			onFire = true;
+
 		}
 		else if (elapsedTime >= notOnFireElapsedTime && onFire ==true) {
 			onFireElapsedTime = Random.Range (0, 40);

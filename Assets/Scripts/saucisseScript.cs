@@ -11,10 +11,13 @@ public class saucisseScript : MonoBehaviour {
 	public bool onFire;
 	private float timer;
 	[HideInInspector]public float elapsedTime;
+	private Renderer rend;
 	public float dangerousLevel;
 	public float onFireDommage;
 	public float fireDommageTime;
+	public Texture[] textures;
 	public Animator monAnim;
+	public GameObject skin;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +35,7 @@ public class saucisseScript : MonoBehaviour {
 				Debug.Log ( monAnim.GetBool("isFiring"));
 				monAnim.SetBool("isFiring",true);
 				Debug.Log ( monAnim.GetBool("isFiring")+"guygyugyukgkyhgyukgfygyufgu");
+				rend = skin.renderer;
 			}
 
 		}
@@ -45,7 +49,7 @@ public class saucisseScript : MonoBehaviour {
 
 	public void kill(){
 		if (this.niveauDeCuisson >= this.niveauDeCuissonMax) {
-			Destroy (this);				
+			Destroy (gameObject);				
 		}
 	}
 
@@ -53,6 +57,14 @@ public class saucisseScript : MonoBehaviour {
 	void Update () {
 		//Debug.Log ("Timer:"+timer+"Time.deltaTime" + elapsedTime);
 		elapsedTime += 0.1f;
+		if (niveauDeCuisson < niveauDeCuissonMax / 3) {
+			skin.renderer.material.mainTexture = textures[0];
+		}else if (niveauDeCuisson > niveauDeCuissonMax / 3 && niveauDeCuisson < niveauDeCuissonMax / 1.5) {
+			skin.renderer.material.mainTexture = textures[1];
+		}else if(niveauDeCuisson >= niveauDeCuissonMax ) {
+			skin.renderer.material.mainTexture = textures[2];
+			skin.renderer.material.color = Color.black;
+		}
 
 		if(timer < elapsedTime){
 			this.onFire = false;
@@ -79,8 +91,7 @@ public class saucisseScript : MonoBehaviour {
 	void OnTriggerEnter (Collider col)
 	{	
 		if (col.gameObject.tag == "sauce") {
-			Saucer();
-			// Destruction de la sauce
+			kill ();
 			Destroy(col.gameObject);
 		}
 

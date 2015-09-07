@@ -21,8 +21,9 @@ public class KetchupScript : MonoBehaviour {
 		// Destruction de la bille de sauce si elle touvhe un mur
 		if (col.gameObject.tag == "wall")
 		{
+
+			GameObject instantiatedKetchup = Instantiate (TacheKetchup, transform.position + transform.forward , transform.rotation) as GameObject;
 			Destroy(gameObject);
-			Rigidbody instantiatedKetchup = Instantiate (TacheKetchup, transform.position + transform.forward , transform.rotation) as Rigidbody;
 		}
 	}
 }

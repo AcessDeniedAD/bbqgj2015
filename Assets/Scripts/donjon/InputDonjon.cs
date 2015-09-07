@@ -7,7 +7,7 @@ public class InputDonjon : MonoBehaviour {
 	private Quaternion saveRotate;
 	public int playerNum;
 	public GameObject saucisseGameObject;
-	private float speed =0.1f;
+	public float speed =0.1f;
 	public Animator monAnim ;
 	// Use this for initialization
 	void Start () {
